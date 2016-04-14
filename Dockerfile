@@ -1,26 +1,26 @@
 FROM debian:wheezy
 
-MAINTAINER Mathieu Ruellan <mathieu.ruellan@gmail.com>
+MAINTAINER Alastair Montgomery <alastair@montgomery.me.uk>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
 RUN apt-get update \
      && apt-get dist-upgrade -y \
-     && apt-get install apache2 libapache2-mod-php5 -y \
+     && apt-get install -y \
+        apache2 \
+        dcraw \
+        ffmpeg \
+        imagemagick \
+        libapache2-mod-php5 \
+        mediainfo \
+        php5-ffmpeg \
+        php5-gd \
+        php5-mysql \
+        unzip \
+        wget \
      && apt-get clean \
      && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN apt-get update && \
-    apt-get install -y php5-mysql imagemagick wget unzip && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-
-RUN apt-get update && \
-    apt-get install -y php5-gd php5-ffmpeg dcraw mediainfo ffmpeg && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN wget -q -O piwigo.zip http://piwigo.org/download/dlcounter.php?code=latest && \
     unzip piwigo.zip && \
