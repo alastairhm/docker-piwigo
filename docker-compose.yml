@@ -8,8 +8,7 @@ mysqlpiwigo:
       - MYSQL_USER=piwigo
       - MYSQL_PASSWORD=MYUSERPASSWORD
 piwigo:
-   build: ./
-   container_name: alastairhm_piwigo
+   image: alastairhm/docker-piwigo
    links:
       - mysqlpiwigo:mysql 
    volumes:
@@ -25,6 +24,4 @@ piwigo:
       - "80:80"
    hostname: piwigo
    domainname: MYDOMAIN.COM
-
-
 
