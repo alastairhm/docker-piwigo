@@ -22,7 +22,7 @@ piwigo:
       - /var/log
       - /var/log/piwigo:/var/log/apache2
    ports:
-      - "8002:80"
+      - "80:80"
    hostname: piwigo
    domainname: MYDOMAIN.COM
 
