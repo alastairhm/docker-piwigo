@@ -3,7 +3,7 @@
 This is an image for piwigo, linked with a mysql database.
 Data must be stored on a volume.
 
-Edit this `fig.yml` and launch with the command `$ fig up -d `
+Edit this docker-compose file
 
 ```
 mysqlpiwigo:
@@ -16,7 +16,7 @@ mysqlpiwigo:
       - MYSQL_USER=piwigo
       - MYSQL_PASSWORD=MYUSERPASSWORD
 piwigo:
-   image: mathieuruellan/piwigo
+   image: alastairhm/docker-piwigo
    links:
       - mysqlpiwigo:mysql 
    volumes:
@@ -29,7 +29,7 @@ piwigo:
       - /var/log
       - /var/log/piwigo:/var/log/apache2
    ports:
-      - "MYPORT:80"
+      - "80:80"
    hostname: piwigo
    domainname: MYDOMAIN.COM
 
